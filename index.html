@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4f46e5">
+<title>German 250</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f2f4f7;color:#222}.app{max-width:540px;min-height:100vh;margin:auto;background:#fff;padding:18px}.setup{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:25px 18px;text-align:center}.setup h1{font-size:32px;margin:0 0 8px}.setup p{color:#666;line-height:1.5;margin:0 0 28px}.setup-card{background:#f8fafc;border-radius:22px;padding:25px 19px;box-shadow:0 5px 22px #00000012}.setup-label{display:block;font-size:14px;font-weight:bold;margin-bottom:9px;text-align:left}.setup input{width:100%;border:1px solid #d1d5db;border-radius:12px;padding:14px;font-size:16px;margin-bottom:22px;outline:none}.setup input:focus{border-color:#4f46e5}.setup-level{display:flex;gap:7px;background:#f1f5f9;padding:5px;border-radius:14px;margin:10px 0 20px}.setup-level button{flex:1;border:0;background:transparent;color:#64748b;padding:10px 5px;border-radius:10px;font-weight:bold;cursor:pointer;margin:0}.setup-level button.active{background:#fff;color:#4f46e5;box-shadow:0 2px 7px #0001}.setup-info{font-size:12px;color:#777;line-height:1.45;margin:0 0 12px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;padding:5px 0}header h1{margin:0;font-size:20px;letter-spacing:.3px}.user-progress{font-size:14px;font-weight:bold;color:#4f46e5;white-space:nowrap;text-align:right}.mode{display:flex;gap:8px;margin:10px 0}.mode button{flex:1}.progress{margin:14px 0}.pinfo{display:flex;justify-content:space-between;font-size:13px;color:#666;margin-bottom:6px}.bar{height:9px;background:#e5e7eb;border-radius:20px;overflow:hidden}.fill{height:100%;width:0;background:#4f46e5;transition:.25s}.card{background:#f8fafc;border-radius:22px;padding:25px 19px;box-shadow:0 5px 22px #00000012;text-align:center}.badge{display:inline-block;background:#e0e7ff;color:#3730a3;padding:6px 11px;border-radius:20px;font-size:11px;font-weight:bold;text-transform:uppercase;margin-bottom:17px}.english{font-size:29px;font-weight:bold;line-height:1.35;margin-bottom:10px}.pron{font-size:21px;color:#666;font-style:italic;line-height:1.4;margin-bottom:12px}.label{display:block;font-size:10px;color:#999;font-style:normal;text-transform:uppercase;margin-bottom:3px}.spanish{font-size:15px;color:#777;margin-bottom:18px}.question-box{background:#eef2ff;border-radius:13px;padding:13px;margin-bottom:17px}.question-label{font-size:11px;text-transform:uppercase;font-weight:bold;color:#4f46e5;margin-bottom:8px}.question-en{font-size:22px;font-weight:bold;line-height:1.35}.answer-hidden{display:none}.result{min-height:48px;padding:11px;border-radius:11px;margin-top:10px;font-size:14px;line-height:1.4}.wrong{background:#fee2e2;color:#991b1b}.right{background:#dcfce7;color:#166534}.neutral{background:transparent;color:#444}.btnrow{display:flex;gap:8px}.btnrow button{flex:1}button{border:0;border-radius:12px;padding:13px;margin-top:8px;font-size:15px;cursor:pointer}button.primary{background:#4f46e5;color:white;font-weight:bold}button.secondary{background:#e0e7ff;color:#3730a3}button.soft{background:#f1f5f9;color:#475569}button.gold{background:#fef3c7;color:#92400e}.nav{display:flex;gap:9px;margin-top:15px}.nav button{flex:1;background:#e5e7eb}.small{text-align:center;color:#777;font-size:13px;margin-top:12px}.timer{font-weight:bold;text-align:center;color:#92400e;margin:8px 0}.exam{display:none}.exam h2{text-align:center}.exam-intro{background:#eef2ff;padding:13px;border-radius:12px;line-height:1.45;font-size:14px}.exam-question{font-size:23px;font-weight:bold;line-height:1.4;text-align:center;margin:14px 0}.exam-pron{text-align:center;color:#777;font-style:italic}.exam-es{text-align:center;color:#777;margin:6px 0 15px}.exam-score{text-align:center;font-size:18px;font-weight:bold;margin:10px}.open-answer{font-size:15px;color:#666;line-height:1.45;text-align:center}.final-box{background:#f8fafc;border-radius:16px;padding:18px;text-align:center}.final-score{font-size:28px;font-weight:bold}.hidden{display:none!important}.green{color:#166534}.red{color:#991b1b}.yellow{color:#92400e}.exam-hint{background:#fef3c7;border-radius:12px;padding:13px;margin:12px 0;text-align:center}.hint-title{font-weight:bold;color:#92400e;margin-bottom:8px}.hint-phrase{font-size:21px;font-weight:bold;letter-spacing:1px;line-height:1.6}.hint-note{font-size:12px;color:#92400e;margin-top:6px}.block-markers{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin:10px 0}.block-marker{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e5e7eb;color:#64748b;font-size:12px;font-weight:bold}.block-marker.current{outline:2px solid #4f46e5;outline-offset:2px}.block-marker.ok{background:#dcfce7;color:#166534}.block-marker.bad{background:#fee2e2;color:#991b1b}.block-rule{text-align:center;font-size:12px;color:#777;margin-bottom:10px}.exam-detail{margin-top:18px;text-align:left}.exam-detail-item{border-top:1px solid #e5e7eb;padding:12px 0}.exam-detail-item strong{display:block;margin-bottom:5px}.exam-detail-item small{display:block;color:#666;line-height:1.45;margin-top:4px}@media(max-width:400px){.app{padding:13px}.english{font-size:26px}.pron{font-size:19px}.question-en{font-size:20px}header h1{font-size:18px}.user-progress{font-size:13px}}
+.blocks-screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:25px 18px;text-align:center}.blocks-screen h1{font-size:32px;margin:0 0 8px}.blocks-screen p{color:#666;line-height:1.5;margin:0 0 20px}.blocks-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.blocks-grid button{margin:0;padding:12px 5px;font-weight:bold}.blocks-grid button.done{background:#dcfce7;color:#166534}.blocks-back{margin-top:16px!important;background:#e5e7eb!important;color:#475569!important}</style>
+</head>
+<body>
+<div id="setupScreen" class="setup"><h1>GERMAN250</h1><p>by CMD</p><div class="setup-card"><label class="setup-label" for="username">¿Cuál es tu nombre?</label><input id="username" type="text" maxlength="25" placeholder="Escribe tu nombre" autocomplete="off"><label class="setup-label">Elige tu modalidad de aprendizaje</label><div class="setup-level"><button id="setupEasy" onclick="chooseSetupLevel('easy')">🟢 Fácil<br>75%</button><button id="setupMedium" class="active" onclick="chooseSetupLevel('medium')">🟡 Medio<br>85%</button><button id="setupHard" onclick="chooseSetupLevel('hard')">🔴 Difícil<br>95%</button></div><p class="setup-info">El nivel elegido quedará guardado para este usuario durante todo su aprendizaje.</p><button class="primary" onclick="startApp()">COMENZAR MI APRENDIZAJE</button></div></div>
+<div id="blockScreen" class="blocks-screen hidden">
+  <h1>GERMAN250</h1>
+  <p>Elige el bloque que quieres aprender.</p>
+  <div class="setup-card">
+    <div id="blocksGrid" class="blocks-grid"></div>
+    <button class="blocks-back" onclick="backToSetup()">← Cambiar usuario</button>
+  </div>
+</div>
+<div id="mainApp" class="app hidden"><header><h1>GERMAN250</h1><div id="userProgress" class="user-progress">Usuario · 0%</div></header><div class="nav" style="margin-top:0"><button onclick="backToBlocks()">← Bloques</button></div><div class="mode"><button id="learnBtn" class="primary" onclick="setMode('learn')">📖 Aprender</button><button id="evalBtn" class="soft" onclick="setMode('eval')">🎯 Evaluar frase</button></div><div class="progress"><div class="pinfo"><span id="progressLabel">Bloque 1 · 1/10</span><span id="masteredLabel">0 / 250</span></div><div class="bar"><div id="fill" class="fill"></div></div></div>
+<div id="learningArea"><div class="card"><div id="badge" class="badge"></div><div id="english" class="english"></div><div class="pron"><span class="label">Cómo pronunciarlo</span><span id="pron"></span></div><div id="spanish" class="spanish"></div><button class="secondary" onclick="listenText(current().english)">🔊 Escuchar frase</button><button class="primary" onclick="recognize('learn')">🎤 Decir frase</button><div id="learnResult" class="result neutral"></div><button class="gold" onclick="resetPractice()">🔄 Necesito practicarla</button></div><div class="nav"><button onclick="prevPhrase()">← Anterior</button><button onclick="nextPhrase()">Siguiente →</button></div><div id="number" class="small"></div></div>
+<div id="evalArea" style="display:none"><div class="card"><div id="evalBadge" class="badge"></div><div class="question-box"><div class="question-label">Pregunta</div><div id="qEnglish" class="question-en"></div><div id="qPron" class="pron"></div><div id="qSpanish" class="spanish"></div></div><div class="small">La respuesta esperada está oculta. Escucha la pregunta y responde con la frase aprendida.</div><button class="secondary" onclick="listenQuestion()">🔊 Escuchar pregunta</button><button class="primary" onclick="recognize('phraseEval')">🎤 Decir frase</button><button class="soft" onclick="practiceQuestion()">🗣️ Decir pregunta</button><div id="questionPracticeResult" class="result neutral"></div><div id="evalResult" class="result neutral"></div><button id="showAnswer" class="soft" onclick="showAnswer()">👁️ Mostrar respuesta</button><div id="answer" class="answer-hidden"><div id="aEnglish" class="english"></div><div id="aPron" class="pron"></div><div id="aSpanish" class="spanish"></div></div></div><div class="nav"><button onclick="prevPhrase()">← Anterior</button><button onclick="nextPhrase()">Siguiente →</button></div><div id="evalNumber" class="small"></div></div>
+<div id="exam" class="exam"></div></div>
+<script src="frases.js"></script>
+<script>
+const levels={easy:{name:'Fácil',threshold:.75,phraseTime:25,examTime:15,openMinutes:1},medium:{name:'Medio',threshold:.85,phraseTime:20,examTime:15,openMinutes:2},hard:{name:'Difícil',threshold:.95,phraseTime:15,examTime:15,openMinutes:3}};
+let selectedSetupLevel='medium',username='',level='medium',mode='learn',index=0,attempt=0,learnStage=0,mastered=new Set(),learnStages={},blockResults={},examHistory=[],exam=null,examTimer=null,recognitionActive=false,wakeLock=null;
+const USERS_KEY='german250_users';
+function getUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY))||{}}catch(e){return {}}}
+function saveUsers(u){localStorage.setItem(USERS_KEY,JSON.stringify(u))}
+function normalizeUsername(n){return n.trim().replace(/\s+/g,' ')}
+function chooseSetupLevel(l){selectedSetupLevel=l;document.querySelectorAll('.setup-level button').forEach(b=>b.classList.remove('active'));document.getElementById('setup'+l.charAt(0).toUpperCase()+l.slice(1)).classList.add('active')}
+function startApp(){const input=document.getElementById('username'),name=normalizeUsername(input.value);if(!name){alert('Por favor, escribe tu nombre.');input.focus();return}const users=getUsers();username=name;if(users[username]){level=users[username].level||'medium';index=users[username].index||0;mastered=new Set(users[username].mastered||[]);learnStages=users[username].learnStages||{};blockResults=users[username].blockResults||{};examHistory=users[username].examHistory||[]}else{level=selectedSetupLevel;index=0;mastered=new Set();learnStages={};blockResults={};examHistory=[];users[username]={level,index,mastered:[],learnStages:{},blockResults:{},examHistory:[]};saveUsers(users)}normalizePhraseNumbers();learnStage=mastered.has(index)?3:Number(learnStages[index]||0);document.getElementById('setupScreen').classList.add('hidden');document.getElementById('mainApp').classList.add('hidden');document.getElementById('blockScreen').classList.remove('hidden');renderBlocks();}
+
+function renderBlocks(){
+  const grid=document.getElementById('blocksGrid'); if(!grid)return;
+  grid.innerHTML='';
+  for(let b=1;b<=25;b++){
+    const btn=document.createElement('button');
+    btn.textContent='Bloque '+b;
+    if(isBlockPassed(b))btn.className='done';
+    btn.onclick=()=>openBlock(b);
+    grid.appendChild(btn);
+  }
+}
+function openBlock(block){
+  index=Math.min((block-1)*10,phrases.length-1);
+  saveProgress();
+  document.getElementById('blockScreen').classList.add('hidden');
+  document.getElementById('mainApp').classList.remove('hidden');
+  resetPhrase();
+  render();
+}
+function backToBlocks(){
+  stopWakeLock();
+  document.getElementById('mainApp').classList.add('hidden');
+  document.getElementById('blockScreen').classList.remove('hidden');
+  renderBlocks();
+}
+function backToSetup(){
+  stopWakeLock();
+  document.getElementById('blockScreen').classList.add('hidden');
+  document.getElementById('mainApp').classList.add('hidden');
+  document.getElementById('setupScreen').classList.remove('hidden');
+}
+
+function saveProgress(){if(!username)return;const users=getUsers();users[username]={level,index,mastered:Array.from(mastered),learnStages,blockResults,examHistory};saveUsers(users)}
+document.getElementById('username').addEventListener('keydown',e=>{if(e.key==='Enter')startApp()});
+
+function prepareGermanPhrases(){
+  const prepared=phrases.map((raw,i)=>{
+    const english=raw.english||raw[0]||'';
+    const pronunciation=raw.pronunciation||raw[1]||'';
+    const spanish=raw.spanish||raw[2]||'';
+    const block=Number(raw.bloque)||Math.floor(i/10)+1;
+    let question='';
+    let questionSpanish='';
+    if(block<=10){
+      question='Diga: '+spanish;
+      questionSpanish='Diga en alemán la palabra o expresión aprendida.';
+    }else if(/\?$/.test(english)){
+      question=buildPromptForQuestion(spanish);
+      questionSpanish='Responde con la pregunta aprendida.';
+    }else{
+      question=raw.question || buildPromptForPhrase(spanish,english);
+      questionSpanish='Responde con la frase que has aprendido.';
+    }
+    return {english,pronunciation,spanish,block,blockName:raw.tema||'Grundlagen',question,questionPronunciation:pronunciationGuide(question),questionSpanish};
+  });
+  phrases.length=0; prepared.forEach(p=>phrases.push(p));
+}
+function pronunciationGuide(text){
+  return '';
+}
+function buildPromptForQuestion(es){
+  if(/nombre|llama/i.test(es))return'Wie fragen Sie nach dem Namen einer Person?';
+  if(/cómo está|cómo te va|bien/i.test(es))return'Wie fragen Sie, wie es jemandem geht?';
+  if(/dónde/i.test(es))return'Wie fragen Sie, wo jemand ist?';
+  if(/cuánto|cuántos|número/i.test(es))return'Wie fragen Sie nach einer Zahl oder Nummer?';
+  if(/qué significa/i.test(es))return'Wie fragen Sie nach der Bedeutung eines Wortes?';
+  if(/cómo se dice/i.test(es))return'Wie fragen Sie, wie man etwas auf Deutsch sagt?';
+  if(/repetir|repita/i.test(es))return'Wie bitten Sie jemanden, etwas zu wiederholen?';
+  if(/despacio/i.test(es))return'Wie bitten Sie jemanden, langsam zu sprechen?';
+  if(/cuándo|qué día/i.test(es))return'Wie fragen Sie nach dem Zeitpunkt oder Tag?';
+  if(/dónde|lugar/i.test(es))return'Wie fragen Sie nach einem Ort?';
+  return'Wie stellen Sie diese Frage auf Deutsch?';
+}
+function buildPromptForPhrase(es,de){
+  if(/buenos días/i.test(es))return'Was sagen Sie am Morgen zur Begrüßung?';
+  if(/buenas tardes/i.test(es))return'Was sagen Sie am Nachmittag zur Begrüßung?';
+  if(/buenas noches/i.test(es))return'Was sagen Sie am Abend zur Begrüßung?';
+  if(/hola/i.test(es))return'Wie begrüßen Sie eine Person?';
+  if(/gracias/i.test(es))return'Wie bedanken Sie sich?';
+  if(/por favor/i.test(es))return'Wie bitten Sie höflich um etwas?';
+  if(/perdón|disculpe/i.test(es))return'Wie entschuldigen Sie sich höflich?';
+  if(/no entiendo/i.test(es))return'Was sagen Sie, wenn Sie etwas nicht verstehen?';
+  if(/alemán|aprendiendo/i.test(es))return'Was sagen Sie, wenn Sie erklären möchten, dass Sie Deutsch lernen?';
+  if(/español/i.test(es))return'Was sagen Sie, wenn Sie erklären möchten, dass Sie Spanisch sprechen?';
+  if(/trabaj/i.test(es))return'Was sagen Sie über Ihre Arbeit?';
+  if(/mañana/i.test(es))return'Was sagen Sie über morgen?';
+  if(/ayer/i.test(es))return'Was sagen Sie über gestern?';
+  if(/domingo|lunes|martes|miércoles|jueves|viernes|sábado/i.test(es))return'Was sagen Sie über diesen Tag?';
+  if(/compr|comprar|tienda|supermercado/i.test(es))return'Was sagen Sie, wenn Sie etwas kaufen möchten?';
+  if(/adresse|dirección/i.test(es))return'Was sagen Sie, wenn Sie nach einer Adresse fragen?';
+  if(/número/i.test(es))return'Was sagen Sie, wenn Sie eine Nummer nennen?';
+  return'Was sagen Sie in dieser Situation?';
+}
+
+function normalizePhraseNumbers(){return;}
+function current(){return phrases[index]}
+function setMode(m){mode=m;document.getElementById('learningArea').style.display=m==='learn'?'block':'none';document.getElementById('evalArea').style.display=m==='eval'?'block':'none';document.getElementById('learnBtn').className=m==='learn'?'primary':'soft';document.getElementById('evalBtn').className=m==='eval'?'primary':'soft';resetPhrase();render()}
+function render(){
+const p=current();
+document.getElementById('badge').textContent='Block '+p.block+' · '+p.blockName;
+document.getElementById('english').textContent=p.english;
+document.getElementById('pron').textContent=p.pronunciation;
+document.getElementById('spanish').textContent=p.spanish;
+document.getElementById('number').innerHTML='Frase '+(index+1)+' de '+phrases.length+' · '+levels[level].name+' · '+(mastered.has(index)?'<span class="green"><strong>✅ Aprendida</strong></span>':'<span class="yellow"><strong>🟡 Pendiente</strong></span>');
+document.getElementById('evalBadge').textContent='Evaluación · Bloque '+p.block;
+document.getElementById('qEnglish').textContent=p.question;
+document.getElementById('qPron').innerHTML='<span class="label">Cómo pronunciar la pregunta</span>'+p.questionPronunciation;
+document.getElementById('qSpanish').textContent=p.questionSpanish;
+document.getElementById('evalNumber').textContent='Frase '+(index+1)+' de '+phrases.length+' · intento '+Math.min(attempt+1,3)+' de 3';
+document.getElementById('aEnglish').textContent=p.english;
+document.getElementById('aPron').textContent=p.pronunciation;
+document.getElementById('aSpanish').textContent=p.spanish;
+document.getElementById('answer').style.display='none';
+const qp=document.getElementById('questionPracticeResult');if(qp){qp.className='result neutral';qp.textContent=''}
+updateProgress()
+}
+function getTotalBlocks(){const blocks=phrases.map(p=>Number(p.block)||0).filter(Boolean);return blocks.length?Math.max(...blocks):Math.ceil(phrases.length/10)}
+function getBlockBestScore(block){const v=blockResults[String(block)];if(v&&typeof v==='object')return Number(v.bestScore)||0;if(v===true)return 1;return 0}
+function isBlockPassed(block){const total=phrases.filter(p=>Number(p.block)===Number(block)).length||10;const v=blockResults[String(block)];if(v===true)return true;return getBlockBestScore(block)>=getBlockPassThreshold(total)}
+function updateProgress(){const phrasePct=phrases.length?mastered.size/phrases.length:0;const totalBlocks=getTotalBlocks();const passedBlocks=Object.keys(blockResults).filter(b=>isBlockPassed(b)).length;const percentage=Math.round(phrasePct*50+(passedBlocks/totalBlocks)*50);document.getElementById('progressLabel').textContent='Bloque '+current().block+' · '+((index%10)+1)+'/10';document.getElementById('masteredLabel').textContent=mastered.size+' / '+phrases.length+' frases · '+passedBlocks+' / '+totalBlocks+' bloques';document.getElementById('fill').style.width=percentage+'%';document.getElementById('userProgress').textContent=username+' · '+percentage+'%'}
+function resetPhrase(){attempt=0;learnStage=mastered.has(index)?3:Number(learnStages[index]||0);['learnResult','evalResult'].forEach(id=>{const e=document.getElementById(id);if(e){e.className='result neutral';e.textContent=''}});applyLearnStage()}
+function applyLearnStage(){const tr=document.getElementById('spanish'),pr=document.getElementById('pron').parentElement;if(tr)tr.style.display='block';if(pr)pr.style.display='block'}
+function resetPractice(){attempt=0;const e=document.getElementById('learnResult');e.className='result neutral';if(mastered.has(index)){e.textContent='🔄 Esta frase ya está aprendida. Puedes practicarla sin perder tu progreso.';return}learnStage=0;learnStages[index]=0;saveProgress();e.textContent='🔄 Empezamos de nuevo. Intenta decirla otra vez.';render()}
+function normalize(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[.,!?;:'"-]/g,'').replace(/\s+/g,' ').trim()}
+function similarity(a,b){a=normalize(a).split(' ').filter(Boolean);b=normalize(b).split(' ').filter(Boolean);if(!a.length||!b.length)return 0;const used=new Set();let m=0;a.forEach(w=>{let best=-1;for(let i=0;i<b.length;i++){if(used.has(i))continue;if(w===b[i]||lev(w,b[i])<=Math.max(1,Math.floor(Math.min(w.length,b[i].length)/4))){best=i;break}}if(best>=0){used.add(best);m++}});return m/Math.max(a.length,b.length)}
+function lev(a,b){const d=Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));for(let i=0;i<=a.length;i++)d[i][0]=i;for(let j=0;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[a.length][b.length]}
+function recognize(type){if(recognitionActive)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('El reconocimiento de voz no está disponible en este navegador. Usa Edge o Chrome.');return}const r=new SR();r.lang='de-DE';r.continuous=false;r.interimResults=false;r.maxAlternatives=1;recognitionActive=true;const status=document.getElementById(type==='learn'?'learnResult':'evalResult');status.className='result neutral';status.textContent='🎤 Escuchando... habla ahora';r.onresult=e=>checkAnswer(type,e.results[0][0].transcript);r.onerror=()=>{status.className='result wrong';status.textContent='🔴 No pude escucharte. Inténtalo otra vez.';recognitionActive=false};r.onend=()=>recognitionActive=false;try{r.start()}catch(e){recognitionActive=false}}
+function practiceQuestion(){if(recognitionActive)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('El reconocimiento de voz no está disponible en este navegador. Usa Edge o Chrome.');return}const r=new SR(),status=document.getElementById('questionPracticeResult');r.lang='de-DE';r.continuous=false;r.interimResults=false;r.maxAlternatives=1;status.className='result neutral';status.textContent='🎤 Escuchando... di la pregunta';r.onresult=e=>{status.className='result neutral';status.innerHTML='<strong>La app entendió:</strong> <em>'+escapeHtml(e.results[0][0].transcript)+'</em>'};r.onerror=()=>{status.className='result wrong';status.textContent='🔴 No pude escucharte. Inténtalo otra vez.'};try{r.start()}catch(e){}}
+function checkAnswer(type,spoken){const p=current(),score=similarity(spoken,p.english),ok=score>=levels[level].threshold,el=document.getElementById(type==='learn'?'learnResult':'evalResult');attempt++;if(ok){el.className='result right';el.innerHTML='🟢 <strong>Correcto.</strong> La app entendió: <em>'+escapeHtml(spoken)+'</em> · <strong>'+Math.round(score*100)+'%</strong>';if(type==='learn'){learnStage=Math.min(3,learnStage+1);learnStages[index]=learnStage;if(learnStage===3){mastered.add(index);el.innerHTML+='<br>🎉 <strong>Frase aprendida.</strong>'}saveProgress();render()}else if(type==='eval'&&attempt===1){setTimeout(()=>nextPhrase(true),700)}else if(type==='eval'&&attempt<3){el.innerHTML+='<br>Muy bien. Puedes seguir con la siguiente pregunta.'}return}else{el.className='result wrong';el.innerHTML='🔴 <strong>No alcanza el '+Math.round(levels[level].threshold*100)+'%.</strong><br>La app entendió: <em>'+escapeHtml(spoken)+'</em>';if(type==='learn')el.innerHTML+='<br>🟡 <strong>Frase pendiente.</strong> Puedes reintentarlo o avanzar a la siguiente.';else if(attempt>=3){el.innerHTML+='<br><br><strong>Respuesta correcta:</strong> '+escapeHtml(p.english);if(type==='eval')setTimeout(()=>nextPhrase(true),900)}}document.getElementById(type==='learn'?'number':'evalNumber').innerHTML='Frase '+(index+1)+' de '+phrases.length+' · intento '+Math.min(attempt+1,3)+' de 3'+(type==='learn'?' · <span class="yellow"><strong>🟡 Pendiente</strong></span>':'')}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function showAnswer(){document.getElementById('answer').style.display='block'}
+function listenText(t){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='de-DE';u.rate=.72;speechSynthesis.speak(u)}
+function listenQuestion(){listenText(current().question)}
+function prevPhrase(){index=index?index-1:phrases.length-1;saveProgress();resetPhrase();render()}
+function nextPhrase(auto=false){const oldIndex=index;index=(index+1)%phrases.length;saveProgress();resetPhrase();render();if(!auto&&oldIndex%10===9)setTimeout(()=>offerBlockExam(Math.floor(oldIndex/10)+1),250)}
+function offerBlockExam(block){if(exam)return;const ok=confirm('You finished block '+block+'. Would you like to take the block assessment now?');if(ok)startExam('block',block)}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function integratorLimit(type){return ({integrator50:50,integrator100:100,integrator150:150,integrator200:200,integrator250:250})[type]||50}
+function examQuestions(type,block){if(type==='block')return shuffle(phrases.filter(p=>Number(p.block)===Number(block)).map((p)=>p)).slice(0,10);const limit=integratorLimit(type),pool=phrases.slice(0,limit),errorIds=new Set();examHistory.filter(h=>h.type==='block'&&h.phraseIndex>=0&&h.phraseIndex<limit).forEach(h=>{if(h.attempts&&h.attempts.some(a=>!a.ok))errorIds.add(h.phraseIndex)});const priority=shuffle(pool.filter(p=>errorIds.has(phrases.indexOf(p)))),rest=shuffle(pool.filter(p=>!errorIds.has(phrases.indexOf(p))));return priority.concat(rest).slice(0,20)}
+
+async function startWakeLock(){
+  if(!('wakeLock' in navigator))return;
+  try{wakeLock=await navigator.wakeLock.request('screen');}catch(e){}
+}
+function stopWakeLock(){
+  if(wakeLock){try{wakeLock.release()}catch(e){} wakeLock=null;}
+}
+document.addEventListener('visibilitychange',async()=>{
+  if(document.visibilityState==='visible'&&exam)await startWakeLock();
+});
+
+function startExam(type,block){startWakeLock();exam={type,block,questions:examQuestions(type,block),pos:0,attempts:0,correct:0,answers:[],remaining:15,questionSpoken:false,recognizing:false,locked:false,countdown:3};document.getElementById('learningArea').style.display='none';document.getElementById('evalArea').style.display='none';document.getElementById('exam').style.display='block';showExamCountdown()}
+function showExamCountdown(){const e=document.getElementById('exam');e.innerHTML='<div class="final-box"><h2>🎯 '+examTitle()+'</h2><div class="exam-intro">The assessment will start in</div><div class="final-score" id="examCountdown">3</div></div>';let n=3;const t=setInterval(()=>{if(!exam){clearInterval(t);return}n--;const c=document.getElementById('examCountdown');if(c)c.textContent=n;if(n<=0){clearInterval(t);beginExamQuestion()}},1000)}
+function examTitle(){if(exam.type==='block')return'Block '+exam.block+' Assessment';return 'Integrator '+integratorLimit(exam.type)+' Assessment'}
+function startExamTimer(){clearInterval(examTimer);exam.remaining=15;examTimer=setInterval(()=>{if(!exam){clearInterval(examTimer);return}exam.remaining--;const t=document.getElementById('examTimer');if(t)t.textContent=exam.remaining;if(exam.remaining<=0){clearInterval(examTimer);examTimeOut()}},1000)}
+function beginExamQuestion(){if(!exam)return;renderExam('first');speakThenListen(()=>{if(exam){startExamTimer();startExamRecognition()}})}
+function renderExam(state){const p=exam.questions[exam.pos],total=exam.questions.length,blockStatus=exam.type==='block'?getBlockMarkerHtml():'';document.getElementById('exam').innerHTML='<h2>🎯 '+examTitle()+'</h2>'+blockStatus+'<div class="exam-intro">Mode: <strong>'+levels[level].name+'</strong> · required score: '+Math.round(levels[level].threshold*100)+'% · up to 3 attempts per question · 15 seconds per attempt.</div><div class="timer">⏱️ Time: <span id="examTimer">15</span> s</div><div class="small">Question '+(exam.pos+1)+' of '+total+'</div><div id="examQuestion" class="exam-question '+(state==='first'?'hidden':'')+'">'+escapeHtml(p.question)+'</div><div id="examHint" class="exam-hint hidden"></div><div id="examResult" class="result neutral">Listening to the question...</div><button id="examAction" class="primary" disabled>🎤 Respond</button>'}
+function getBlockMarkerHtml(){if(!exam||exam.type!=='block')return '';let html='<div class="block-markers">';exam.questions.forEach((q,i)=>{let state=i<exam.pos?'done':i===exam.pos?'current':'pending';if(exam.answers[i]&&exam.answers[i].ok)state='ok';else if(exam.answers[i]&&!exam.answers[i].ok)state='bad';html+='<span class="block-marker '+state+'">'+(i+1)+'</span>'});return html+'</div><div class="block-rule">Easy: up to 2 failures · Medium: up to 1 · Hard: 0</div>'}
+function speakThenListen(callback){if(!('speechSynthesis'in window)){callback();return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(exam.questions[exam.pos].question);u.lang='de-DE';u.rate=.72;u.onend=callback;speechSynthesis.speak(u)}
+function startExamRecognition(){if(!exam||exam.locked||exam.recognizing)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Speech recognition is not available. Use Edge or Chrome.');return}const r=new SR();exam.recognizing=true;r.lang='de-DE';r.continuous=false;r.interimResults=false;r.maxAlternatives=1;r.onresult=e=>checkExamAnswer(e.results[0][0].transcript);r.onerror=()=>{if(exam){exam.recognizing=false;const el=document.getElementById('examResult');el.className='result wrong';el.textContent='🔴 I could not hear you. Try again.';prepareExamRetry()}};r.onend=()=>{if(exam)exam.recognizing=false};try{r.start()}catch(e){exam.recognizing=false;prepareExamRetry()}}
+function prepareExamRetry(){if(!exam)return;const b=document.getElementById('examAction');if(b)b.disabled=false}
+function countErrors(spoken,answer){const a=normalize(spoken).split(' ').filter(Boolean),b=normalize(answer).split(' ').filter(Boolean),used=new Set();let matches=0;a.forEach(w=>{for(let i=0;i<b.length;i++){if(used.has(i))continue;if(w===b[i]||lev(w,b[i])<=Math.max(1,Math.floor(Math.min(w.length,b[i].length)/4))){used.add(i);matches++;break}}});return Math.max(b.length-matches,a.length-matches,0)}
+function recordExamAttempt(p,spoken,score,ok){if(!exam.answers[exam.pos])exam.answers[exam.pos]={phraseIndex:phrases.indexOf(p),question:p.question,expected:p.english,attempts:[],ok:false,finalScore:0,errors:0};exam.answers[exam.pos].attempts.push({spoken,score,ok});if(ok){exam.answers[exam.pos].ok=true;exam.answers[exam.pos].finalScore=score;exam.answers[exam.pos].errors=countErrors(spoken,p.english)}else{exam.answers[exam.pos].finalScore=score;exam.answers[exam.pos].errors=countErrors(spoken,p.english)}}
+function checkExamAnswer(spoken){if(!exam)return;exam.recognizing=false;const p=exam.questions[exam.pos],score=similarity(spoken,p.english),ok=score>=levels[level].threshold;exam.attempts++;recordExamAttempt(p,spoken,score,ok);const el=document.getElementById('examResult');el.className=ok?'result right':'result wrong';el.innerHTML=(ok?'🟢 <strong>Correct!</strong>':'🔴 <strong>Incorrect.</strong>')+'<br><strong>What the app understood:</strong> <em>'+escapeHtml(spoken)+'</em><br><strong>Score:</strong> '+Math.round(score*100)+'%<br><strong>Errors:</strong> '+countErrors(spoken,p.english);if(ok){exam.correct++;exam.locked=true;clearInterval(examTimer);el.innerHTML+='<br>✓ Moving to the next question...';setTimeout(nextExamQuestion,900);return}if(exam.attempts===1){el.innerHTML+='<br><br><strong>Almost! Try again.</strong>';showExamAttempt2()}else if(exam.attempts===2){el.innerHTML+='<br><br><strong>Last attempt.</strong>';showExamAttempt3(spoken,p)}else{el.innerHTML+='<br><br>😟 <strong>Question failed.</strong><br><strong>Expected answer:</strong> '+escapeHtml(p.english);finalizeQuestion(false);setTimeout(nextExamQuestion,1100)}}
+function showExamAttempt2(){const p=exam.questions[exam.pos];document.getElementById('examQuestion').classList.remove('hidden');document.getElementById('examQuestion').textContent=p.question;document.getElementById('examHint').classList.add('hidden');document.getElementById('examResult').innerHTML+=' <br>Listen again and respond.';speakThenListen(()=>{if(!exam)return;startExamTimer();startExamRecognition()})}
+function findHintWord(spoken,answer){const sw=normalize(spoken).split(' ').filter(Boolean),aw=normalize(answer).split(' ').filter(Boolean);let best=aw[0],bestScore=1;aw.forEach(w=>{let min=1;sw.forEach(x=>{const s=lev(w,x)/Math.max(w.length,x.length,1);if(s<min)min=s});if(min<bestScore){bestScore=min;best=w}});return best}
+function buildHint(answer,word){const words=answer.split(/\s+/);const target=normalize(word);return words.map(w=>normalize(w)===target?'<strong>'+escapeHtml(w)+'</strong>':'___').join(' ')}
+function showExamAttempt3(spoken,p){document.getElementById('examQuestion').classList.remove('hidden');document.getElementById('examQuestion').textContent=p.question;const word=findHintWord(spoken,p.english),hint=document.getElementById('examHint');hint.classList.remove('hidden');hint.innerHTML='<div class="hint-title">💡 Answer hint</div><div class="hint-phrase">'+buildHint(p.english,word)+'</div><div class="hint-note">The visible word is a clue based on your error.</div>';speakThenListen(()=>{if(!exam)return;startExamTimer();startExamRecognition()})}
+function finalizeQuestion(ok){const a=exam.answers[exam.pos];if(a){a.ok=ok;a.finalScore=a.attempts.length?a.attempts[a.attempts.length-1].score:0;a.errors=a.attempts.reduce((sum,x)=>sum+x.ok?0:countErrors(x.spoken,a.expected),0)}}
+function examTimeOut(){if(!exam)return;exam.recognizing=false;const p=exam.questions[exam.pos];const el=document.getElementById('examResult');el.className='result wrong';el.innerHTML='⏱️ <strong>Time is up.</strong><br><strong>What the app understood:</strong> No response.';exam.attempts++;recordExamAttempt(p,'',0,false);if(exam.attempts===1){el.innerHTML+='<br><br><strong>Almost! Try again.</strong>';showExamAttempt2()}else if(exam.attempts===2){el.innerHTML+='<br><br><strong>Last attempt.</strong>';showExamAttempt3('',p)}else{el.innerHTML+='<br><br>😟 <strong>Question failed.</strong><br><strong>Expected answer:</strong> '+escapeHtml(p.english);finalizeQuestion(false);setTimeout(nextExamQuestion,1100)}}
+function saveExamHistory(){exam.answers.forEach(a=>{if(!a)return;examHistory.push({type:exam.type,block:exam.block||null,phraseIndex:a.phraseIndex,question:a.question,expected:a.expected,attempts:a.attempts,ok:a.ok,finalScore:a.finalScore,errors:a.errors});});if(examHistory.length>500)examHistory=examHistory.slice(-500);saveProgress()}
+function nextExamQuestion(){if(!exam)return;exam.pos++;if(exam.pos>=exam.questions.length){finishExam();return}exam.attempts=0;exam.questionSpoken=false;exam.recognizing=false;exam.locked=false;renderExam('first');speakThenListen(()=>{if(exam){startExamTimer();startExamRecognition()}})}
+function getBlockPassThreshold(total){const allowed=level==='easy'?2:level==='medium'?1:0;return Math.max(0,total-allowed)}
+function finishExam(){if(!exam)return;clearInterval(examTimer);stopWakeLock();saveExamHistory();const total=exam.questions.length,score=total?exam.correct/total:0,currentPassed=exam.type==='block'?exam.correct>=getBlockPassThreshold(total):score>=levels[level].threshold;let bestScore=score,bestPassed=currentPassed;if(exam.type==='block'){const previous=getBlockBestScore(exam.block);bestScore=Math.max(previous,score);bestPassed=bestScore>=getBlockPassThreshold(total);blockResults[String(exam.block)]={bestScore,passed:bestPassed};saveProgress()}const title=exam.type==='block'?(bestPassed?'🎉 BLOCK PASSED':'📚 BLOCK NOT PASSED'):(currentPassed?'🎉 INTEGRATOR PASSED':'📚 INTEGRATOR COMPLETED');const status=(exam.type==='block'?bestPassed:currentPassed)?'green':'red';let retry=exam.type==='block'?'<button class="primary" onclick="startExam(\'block\','+Number(exam.block)+')">🔄 Repeat block</button>':'';let next='';if(exam.type==='block'&&bestPassed&&[5,10,15,20,25].includes(Number(exam.block))){const n=Number(exam.block);next='<button class="primary" onclick="startExam(\'integrator'+n*10+'\')">🎯 Start Integrator '+n*10+'</button>'}if(exam.type==='integrator250'&&currentPassed)next='<button class="primary" onclick="startFinalOpen()">🗣️ Continue with the 2 open questions</button>';let bestInfo=exam.type==='block'?'<p><strong>Best block result: '+Math.round(bestScore*100)+'%</strong>. This record never decreases.</p>':'';let details='<div class="exam-detail"><h3>Question-by-question statistics</h3>'+exam.answers.map((a,i)=>'<div class="exam-detail-item"><strong>'+(i+1)+'. '+(a.ok?'✅ Correct':'😟 Failed')+'</strong><div>'+escapeHtml(a.question)+'</div><small><strong>What the app understood:</strong> '+escapeHtml(a.attempts.map(x=>x.spoken||'No response').join(' → '))+'</small><small><strong>Score:</strong> '+Math.round((a.finalScore||0)*100)+'% · <strong>Errors:</strong> '+(a.errors||0)+'</small>'+(!a.ok?'<small><strong>Expected answer:</strong> '+escapeHtml(a.expected)+'</small>':'')+'<small><strong>Attempts:</strong> '+a.attempts.length+'</small></div>').join('')+'</div>';document.getElementById('exam').innerHTML='<div class="final-box"><h2 class="'+status+'">'+title+'</h2><div class="final-score">'+Math.round(score*100)+'%</div><p>'+exam.correct+' of '+total+' answers correct in this attempt.</p>'+bestInfo+'<p>Required score for '+levels[level].name+': '+Math.round(levels[level].threshold*100)+'%.</p>'+retry+next+details+'<button class="soft" onclick="closeExam()">← Back to learning</button></div>';exam=null;updateProgress()}
+function closeExam(){stopWakeLock();document.getElementById('exam').style.display='none';setMode(mode)}
+function startFinalOpen(){const prompts=['Erzählen Sie mir etwas über Ihre berufliche Erfahrung und welche Arbeit Sie suchen.','Stellen Sie sich vor, Sie haben eine neue Arbeit begonnen. Erzählen Sie von Ihren ersten Wochen, Ihren Aufgaben und dem Umgang mit Kunden.'];let i=0,timer,openRec,transcript='';function show(){let sec=levels[level].openMinutes*60;transcript='';document.getElementById('exam').innerHTML='<div class="final-box"><h2>🗣️ Open question '+(i+1)+' of 2</h2><div class="exam-question">'+prompts[i]+'</div><div class="exam-es">Speak freely using the vocabulary and structures you have learned. You do not need to repeat a specific sentence.</div><div class="timer">⏱️ Time remaining: <span id="openTimer">'+sec+'</span> s</div><button class="secondary" onclick="listenText(prompts[i])">🔊 Listen to question</button><button class="primary" onclick="startOpenRecognition()">🎤 Start speaking</button><div id="openResult" class="result neutral"></div><div id="openTranscript" class="small"></div></div>';clearInterval(timer);timer=setInterval(()=>{sec--;const e=document.getElementById('openTimer');if(e)e.textContent=sec;if(sec<=0){clearInterval(timer);if(openRec){try{openRec.stop()}catch(x){}}const r=document.getElementById('openResult');r.className='result right';r.innerHTML='⏱️ <strong>Time finished.</strong><br>The app understood: <em>'+escapeHtml(transcript||'No text recorded.')+'</em>';setTimeout(()=>{if(i===0){i=1;show()}else finishOpen()},1400)}},1000)}window.startOpenRecognition=function(){if(openRec)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Speech recognition is not available in this browser.');return}openRec=new SR();openRec.lang='en-US';openRec.continuous=true;openRec.interimResults=true;openRec.maxAlternatives=1;openRec.onresult=e=>{let full='';for(let n=0;n<e.results.length;n++)full+=e.results[n][0].transcript+' ';transcript=full.trim();const t=document.getElementById('openTranscript');if(t)t.textContent='The app is understanding: '+transcript};openRec.onerror=()=>{const r=document.getElementById('openResult');if(r){r.className='result wrong';r.textContent='🔴 Recognition was interrupted. You can press the button again.'}openRec=null};openRec.onend=()=>openRec=null;try{openRec.start();const r=document.getElementById('openResult');r.className='result neutral';r.textContent='🎤 Listening... speak freely. The timer continues.'}catch(e){openRec=null}};show()}
+function finishOpen(){document.getElementById('exam').innerHTML='<div class="final-box"><h2>🏆 Final assessment completed</h2><p>You have completed the point-by-point assessment and the two open responses.</p><p>The objective of this final part is to check your ability to speak freely using the vocabulary and structures learned.</p><button class="primary" onclick="closeExam()">Back to learning</button></div>'}
+prepareGermanPhrases();
+normalizePhraseNumbers();
+render();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(() => console.log('GERMAN250 service worker registered'))
+      .catch(error => console.error('Service Worker error:', error));
+  });
+}
+</script>
+
+</body></html>
