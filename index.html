@@ -169,7 +169,12 @@ function showAnswer(){document.getElementById('answer').style.display='block'}
 function listenText(t){
   if(!('speechSynthesis' in window))return;
   speechSynthesis.cancel();
-  const cleanText=String(t).replace(/\./g,' ').replace(/\s+/g,' ').trim();
+
+  const cleanText=String(t)
+    .replace(/\./g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+
   const u=new SpeechSynthesisUtterance(cleanText);
   u.lang='de-DE';
   u.rate=.72;
@@ -201,7 +206,21 @@ function startExamTimer(){clearInterval(examTimer);exam.remaining=15;examTimer=s
 function beginExamQuestion(){if(!exam)return;renderExam('first');speakThenListen(()=>{if(exam){startExamTimer();startExamRecognition()}})}
 function renderExam(state){const p=exam.questions[exam.pos],total=exam.questions.length,blockStatus=exam.type==='block'?getBlockMarkerHtml():'';document.getElementById('exam').innerHTML='<h2>🎯 '+examTitle()+'</h2>'+blockStatus+'<div class="exam-intro">Mode: <strong>'+levels[level].name+'</strong> · required score: '+Math.round(levels[level].threshold*100)+'% · up to 3 attempts per question · 15 seconds per attempt.</div><div class="timer">⏱️ Time: <span id="examTimer">15</span> s</div><div class="small">Question '+(exam.pos+1)+' of '+total+'</div><div id="examQuestion" class="exam-question '+(state==='first'?'hidden':'')+'">'+escapeHtml(p.question)+'</div><div id="examHint" class="exam-hint hidden"></div><div id="examResult" class="result neutral">Listening to the question...</div><button id="examAction" class="primary" disabled>🎤 Respond</button>'}
 function getBlockMarkerHtml(){if(!exam||exam.type!=='block')return '';let html='<div class="block-markers">';exam.questions.forEach((q,i)=>{let state=i<exam.pos?'done':i===exam.pos?'current':'pending';if(exam.answers[i]&&exam.answers[i].ok)state='ok';else if(exam.answers[i]&&!exam.answers[i].ok)state='bad';html+='<span class="block-marker '+state+'">'+(i+1)+'</span>'});return html+'</div><div class="block-rule">Easy: up to 2 failures · Medium: up to 1 · Hard: 0</div>'}
-function speakThenListen(callback){if(!('speechSynthesis'in window)){callback();return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(exam.questions[exam.pos].question);u.lang='de-DE';u.rate=.72;u.onend=callback;speechSynthesis.speak(u)}
+function speakThenListen(callback){
+  if(!('speechSynthesis'in window)){callback();return}
+  speechSynthesis.cancel();
+
+  const cleanText=String(exam.questions[exam.pos].question)
+    .replace(/\./g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+
+  const u=new SpeechSynthesisUtterance(cleanText);
+  u.lang='de-DE';
+  u.rate=.72;
+  u.onend=callback;
+  speechSynthesis.speak(u);
+}
 function startExamRecognition(){if(!exam||exam.locked||exam.recognizing)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Speech recognition is not available. Use Edge or Chrome.');return}const r=new SR();exam.recognizing=true;r.lang='de-DE';r.continuous=false;r.interimResults=false;r.maxAlternatives=1;r.onresult=e=>checkExamAnswer(e.results[0][0].transcript);r.onerror=()=>{if(exam){exam.recognizing=false;const el=document.getElementById('examResult');el.className='result wrong';el.textContent='🔴 I could not hear you. Try again.';prepareExamRetry()}};r.onend=()=>{if(exam)exam.recognizing=false};try{r.start()}catch(e){exam.recognizing=false;prepareExamRetry()}}
 function prepareExamRetry(){if(!exam)return;const b=document.getElementById('examAction');if(b)b.disabled=false}
 function countErrors(spoken,answer){const a=normalize(spoken).split(' ').filter(Boolean),b=normalize(answer).split(' ').filter(Boolean),used=new Set();let matches=0;a.forEach(w=>{for(let i=0;i<b.length;i++){if(used.has(i))continue;if(w===b[i]||lev(w,b[i])<=Math.max(1,Math.floor(Math.min(w.length,b[i].length)/4))){used.add(i);matches++;break}}});return Math.max(b.length-matches,a.length-matches,0)}
