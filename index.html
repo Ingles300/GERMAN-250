@@ -166,7 +166,15 @@ function practiceQuestion(){if(recognitionActive)return;const SR=window.SpeechRe
 function checkAnswer(type,spoken){const p=current(),score=similarity(spoken,p.english),ok=score>=levels[level].threshold,el=document.getElementById(type==='learn'?'learnResult':'evalResult');attempt++;if(ok){el.className='result right';el.innerHTML='🟢 <strong>Correcto.</strong> La app entendió: <em>'+escapeHtml(spoken)+'</em> · <strong>'+Math.round(score*100)+'%</strong>';if(type==='learn'){learnStage=Math.min(3,learnStage+1);learnStages[index]=learnStage;if(learnStage===3){mastered.add(index);el.innerHTML+='<br>🎉 <strong>Frase aprendida.</strong>'}saveProgress();render()}else if(type==='eval'&&attempt===1){setTimeout(()=>nextPhrase(true),700)}else if(type==='eval'&&attempt<3){el.innerHTML+='<br>Muy bien. Puedes seguir con la siguiente pregunta.'}return}else{el.className='result wrong';el.innerHTML='🔴 <strong>No alcanza el '+Math.round(levels[level].threshold*100)+'%.</strong><br>La app entendió: <em>'+escapeHtml(spoken)+'</em>';if(type==='learn')el.innerHTML+='<br>🟡 <strong>Frase pendiente.</strong> Puedes reintentarlo o avanzar a la siguiente.';else if(attempt>=3){el.innerHTML+='<br><br><strong>Respuesta correcta:</strong> '+escapeHtml(p.english);if(type==='eval')setTimeout(()=>nextPhrase(true),900)}}document.getElementById(type==='learn'?'number':'evalNumber').innerHTML='Frase '+(index+1)+' de '+phrases.length+' · intento '+Math.min(attempt+1,3)+' de 3'+(type==='learn'?' · <span class="yellow"><strong>🟡 Pendiente</strong></span>':'')}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function showAnswer(){document.getElementById('answer').style.display='block'}
-function listenText(t){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='de-DE';u.rate=.72;speechSynthesis.speak(u)}
+function listenText(t){
+  if(!('speechSynthesis' in window))return;
+  speechSynthesis.cancel();
+  const cleanText=String(t).replace(/\./g,' ').replace(/\s+/g,' ').trim();
+  const u=new SpeechSynthesisUtterance(cleanText);
+  u.lang='de-DE';
+  u.rate=.72;
+  speechSynthesis.speak(u);
+}
 function listenQuestion(){listenText(current().question)}
 function prevPhrase(){index=index?index-1:phrases.length-1;saveProgress();resetPhrase();render()}
 function nextPhrase(auto=false){const oldIndex=index;index=(index+1)%phrases.length;saveProgress();resetPhrase();render();if(!auto&&oldIndex%10===9)setTimeout(()=>offerBlockExam(Math.floor(oldIndex/10)+1),250)}
