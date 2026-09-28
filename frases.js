@@ -1,8 +1,8 @@
 // GERMAN250 - 250 pantallas
 // Compatible con index_GERMAN250.html
 const phrases = [
-  { english: "eins · zwei · drei · vier", pronunciation: "ains · tsvai · drai · fiar", spanish: "uno · dos · tres · cuatro" },
-  { english: "fünf · sechs · sieben · acht", pronunciation: "fünf · zeks · zí-ben · ajt", spanish: "cinco · seis · siete · ocho" },
+  { english: "eins  zwei  drei  vier", pronunciation: "ains  tsvai  drai  fiar", spanish: "uno  dos  tres  cuatro" },
+  { english: "fünf  sechs  sieben  acht", pronunciation: "fünf  zeks  zí-ben  ajt", spanish: "cinco  seis  siete  ocho" },
   { english: "neun · zehn · elf · zwölf", pronunciation: "noin · tsein · elf · tsvölf", spanish: "nueve · diez · once · doce" },
   { english: "dreizehn · vierzehn · fünfzehn · sechzehn", pronunciation: "drai-tsein · fíar-tsein · fünft-sein · zeks-tsein", spanish: "trece · catorce · quince · dieciséis" },
   { english: "siebzehn · achtzehn · neunzehn · zwanzig", pronunciation: "zíip-tsein · ajt-tsein · noin-tsein · tsván-tsig", spanish: "diecisiete · dieciocho · diecinueve · veinte" },
